@@ -1,0 +1,364 @@
+---
+title: "Kutatási beszámoló"
+author: "Deák Fanni"
+date: "2024-05-12"
+output:
+  pdf_document:
+    toc: true
+  html_document:
+    toc: true
+    toc_float: true
+indent: true
+header-includes:
+  \usepackage{fvextra}
+  \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+filters:
+  - first-line-indent
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE,tidy.opts=list(width.cutoff=40),tidy=TRUE)
+```
+
+# Szakirodalom
+|     Számos tényező befolyásolhatja egy társadalom stabilitását, illetve járulhat hozzá annak megfigyelhető jellemzőihez. Egy ilyen nagyon fontos, és az elmúlt években egyre inkább tudományos kutatások középpontjába kerülő tényező az adott terület klímája, környezeti sajátosságai. Míg régebben első sorban a különböző veszélyes vegyi anyagoknak, növényvédő szereknek, sugárzásnak való kitettséggel foglalkozott a környezet-egészségügy irodalma, az utóbbi években azonban egyre inkább előtérbe kerültek a globális környezeti változásokkal kapcsolatos tényezők és azok bizonytalanság több területen, például az élelmezés, a víz és a lakhatás terén fennálló összefüggések (Sellers et al., 2019). 
+
+Hsiang és Burke 2013-as összefoglaló tanulmányukban 50 kvantitatív vizsgálat eredményeit összevetve következetesen azt találták, hogy a klimatológiai változások és sajátosságok, valamint a társadalmak konfliktusai között ok-okozati összefüggés írható le. A tanulmányok többsége szerint a konfliktusok fokozódnak és a társadalmi stabilitás csökken, ha a hőmérséklet és a csapadék szélsőséges vagy kiszámíthatatlan. Az éghajlat és társadalmi stabilitás összefüggéseit vizsgáló tanulmányok a környezeti kitettséget többféleképpen konceptualizálják, beleértve a szélsőséges időjárási eseményeket, a hőmérséklet és csapadék rövid és hosszú távú változásait, valamint ezek bejósolhatatlanságát, utóbbi esetén különösen nagy tekintettel a csapadék bejósolhatatlanságára. A társadalmi instabilitás mutatói pedig jellemzően a kultúrán belüli és kultúrák közötti konfliktusok, letelepedési és vándorlási szokások, államcsőd vagy olyan egyéb klímafüggő gazdasági tényezők, mint az élelmiszerárak változásai (Sellers et al., 2019). Egy, kimondottan afrikai helyi kultúrákat vizsgáló, kutatás azt találta, hogy a klimatológiai bizonytalanságból fakadó élelmezési bizonytalanság a polgári konfliktusok „fenyegetettségi multiplikátora”, tehát a konfliktusok magasabb aránya várható ott, ahol nehezebb élelmiszerhez jutni, illetve a rendellenes és kiszámíthatatlan szárazság is a konfliktusok gyakoribbá válásával jár együtt. A csökkenő csapadékmennyiség tehát közvetett hatást gyakorol a konfliktusokra az élelmiszer árára, ezáltal elérhetőségére gyakorolt hatásán keresztül.
+   
+Ebből a rövid áttekintésből is látható, hogy az éghajlati tényezők, valamint azok, különösen a csapadék, bizonytalansága milyen drasztikus hatással lehet a társadalmi stabilitás számos aspektusára. A jelenleg rendelkezésünkre álló statisztikai ugyan módszerek nem tudják teljesen pontosan meghatározni azokat a mechanizmusokat, amelyek révén az éghajlati változások befolyásolják a konfliktusok és a társadalmi instabilitás valószínűségét és mértéket, mely a jövőre vonatkozó predikciókat nehezebbé teszi, ám ez nem jelenti az ok-okozati összefüggésre vonatkozó bizonyíték hiányát. A jövőbeli kutatásoknak érdemes lenne a konkuráló hipotézisek számának csökkentésére fókuszálni, így célzottabb információval szolgálni a döntéshozók számára (Raleigh et al., 2015).
+
+# Kutatási kérdés
+
+|     A rendelkezésre álló szakirodalom alapján elmondhatjuk, hogy az elmúlt években egyre hangsúlyosabbá vált a klímaváltozás és társadalmi stabilitás közötti összefüggések feltárása tudományos kutatásokban. A klímajelenségek, különösen a csapadék és hőmérséklet szélsőségeinek és bejósolhatatlanságának vizsgálata rámutatott arra, hogy ezek milyen mértékben járulnak hozzá a társadalmi instabilitás különböző megnyilvánulásaihoz. A kutatások alapján az éghajlati változásoknak, különösen a csapadékra vonatkozó bizonytalanságnak, számos tényező mentén van jelentős hatása a társadalmi stabilitásra, mint például a letelepedési mintázatok, az élelmiszerbiztonság, a szegénység és a társadalmi konfliktusok. Ezen összefüggések feltárása kiemelkedő fontosságú a jövőbeli előrejelzések és döntéshozatalok szempontjából. Krosszkulturális kutatásomban így arra helyezem fókuszt, hogy feltárjam, a csapadék bejósolhatatlansága valóban együttjár-e világszerte a társadalmi instabilitás nagyobb mértékével, melyeket az előbb említett tényezők mentén definiálok: a társadalmon belüli erőszakos konfliktusok előfordulási gyakorisága, a szezonális éhezés, szegénység mértéke, valamint a letelepedési szokások. 
+   
+
+# Módszertan
+## Források és vizsgált változó
+
+|     Kutatásomhoz a Standard Cross-Cultural Sample (SCCS) (Murdock & White, 1969) és ecoClimate (Lima-Ribeiro et al., 2015) adatbázisokat használtam. Előbbi 186 kultúra adatait, melyek globálisan eloszlanak és szerepelnek az Etnográfiai Atlaszban is. Az utóbbit pedig kimondottan a hasznos éghajlati adatok közlésére fejlesztették ki és tették széles körben, ingyenes elérhetővé szerzői. 
+* A **csapadék kiszámíthatóságát** definiáltam prediktorváltozóként, melyet az ecoClimate adatbázis tartalmazott "PrecipitationPredictability" néven. Egy folytonos skálán jelzi, hogy az éghajlati mintázatok mennyire kiszámíthatóak, melynek értékei 0-tól (teljesen kiszámíthatatlan) 1-ig (teljesen kiszámítható) tejedhetnek. 
+
+A társadalmi instabilitást négy célváltozó vizsgálatával elemeztem, melyeket az SCCS adatbázis tartalmaz. 
+
+* A kultúrán belüli **letelepedési típusokhoz** a "SCCS705" (settlemet type) (Whyte, 2015) ordinális változót vettem figyelembe, mely 1 és 6 közöt vehet fel értékeket (1 - Teljesen vándorló vagy nomád, 2- Szeminomád - legalább fél évben vándorló, 3 - Szétszórt családi letelepülések, 4 - Elkülönült falvak, ahol több család többé-kevésbé egységet alkotnak 5 - Kompakt és állandó falu vagy város, 6 - Komplex települések, melyet a közösség részének tekintett tanyák/falvak vesznek körül). 
+* A társadalmon belüli **erőszakos konfliktusok előfordulási gyakoriságának** megállapításához az "SCCS767" ((No) Conflict (Social or Political) in the Local Community) (Ross, 1983) ordinális változót vettem figyelembe, mely 1 és 4 közötti értékeket vehet fel (1 - Mindennapos erőszak, konfliktusok, 2 - Magas: jelen van, de nem átható a mindennapi életben, 3 - Mérsékelt: a nézeteltérések nem vezetnek nagyfokú erőszakhoz, 4 - Enyhe vagy ritka). 
+* A következő vizsgálat változó az "SCCS1263" (Occurrence of Seasonal Starvation) (Dirks, 1993) ordinális változó volt, mely a szezonális **éhezés előfordulásáról** szolgáltat információt  1 és 5 között felvett értékekekkel (1 - Nagyon alacsony, 2 - Alacsony, 3 - Mérsékelt, 4 - Magas, 5 - Nagyon magas). 
+* Az utolsó, társadalmi instabilitást indikáló célváltozó pedig az "SCCS1723" (Number of Poor) (Lang, 1998) ordinális váltzó, mely a kultúrán belüli **szegénység arányát** írja le egy skála segítségével, mely 10, 20, 21, 22 értékeket tartalmazhat (10 - Szegénység hiánya, 20 - Szegénység jelenléte: nincs információ a mértékéről, 21 - Alacsony arányú szegénység, 22 - Magas arányú szegénység).   
+
+## Az adatok előkészítése 
+
+|     Ahhoz, hogy a prediktor- és célváltozókat egy adattáblában tudjuk vizsgálni, az SCCS és ecoClimate adtatbázisok releváns részeit importálnunk és egyesítenünk kell. Az SCCS-ből szükségünk lesz a [data]('https://github.com/D-PLACE/dplace-data/blob/master/datasets/SCCS/data.csv'), [societies](https://github.com/D-PLACE/dplace-data/blob/master/datasets/SCCS/societies.csv), [variables](https://github.com/D-PLACE/dplace-data/blob/master/datasets/SCCS/variables.csv) és [codes](https://github.com/D-PLACE/dplace-data/blob/master/datasets/SCCS/codes.csv) adattáblákra, az ecoClimate-ből a [data](https://github.com/D-PLACE/dplace-data/blob/master/datasets/ecoClimate/data.csv) adattáblára, illetve a kultúrák [lokációit](https://github.com/D-PLACE/dplace-data/blob/master/legacy/society_locations.csv) tartalmazó adathalmazt is beolvastam.
+```{r read, tidy=TRUE, tidy.opts=list(width.cutoff=40), echo=FALSE}
+library(tidyverse)
+# maguk a konkrét adatok: kultúrák és egyes változók mentén felvett értékek
+data = read_csv('https://raw.githubusercontent.com/D-PLACE/dplace-data/master/datasets/SCCS/data.csv')
+# a kulturális közösségek részletes adatai
+societies = read_csv('https://raw.githubusercontent.com/D-PLACE/dplace-data/master/datasets/SCCS/societies.csv')
+# a tulajdonságok ismertetői
+variables = read_csv('https://raw.githubusercontent.com/D-PLACE/dplace-data/master/datasets/SCCS/variables.csv')
+# a a tulajdonságok értékeinek az ismertetői
+codes = read_csv('https://raw.githubusercontent.com/D-PLACE/dplace-data/master/datasets/SCCS/codes.csv')
+# a kultúrák földrajzi adatai
+locations = read_csv('https://raw.githubusercontent.com/D-PLACE/dplace-data/master/legacy/society_locations.csv')
+# klíma adatok
+eco = read_csv('https://raw.githubusercontent.com/D-PLACE/dplace-data/master/datasets/ecoClimate/data.csv')
+```
+
+  Ezt követően, mindegyik különálló adattáblából kiválasztottam a szükséges oszlopokat, amennyiben két változó két adattáblában is szerepelt, de különböző néven, akkor átneveztem őket, hogy az egyesítésnél ne jelentsen problémát. A klíma adatokat tartalmazó adattábla esetében pedig fordítva, az ugyanolyan nevű, de más adatokat tartalmazó oszlopot neveztem át, ezáltal egy külön oszlopot készítve a klíma változóknak a nagy adattáblában. Ezután történt meg az adattáblák egyesítése kettesével, míg végül elérte végleges formáját.
+
+```{r merge, echo = FALSE}
+data = data %>% 
+  select(soc_id,var_id,code)
+
+societies = societies %>% 
+  select(id,pref_name_for_society,glottocode,Lat,Long)
+
+variables = variables %>% 
+  select(id,category,title,definition)  
+
+locations = locations %>% 
+  select(dataset,soc_id,region) #megtartom a dataset-et is, hogy később tudjam "javítani" a soc_id oszlopot
+
+eco$eco_id <- eco$var_id # átnevezem a var_id-t, hogy a későbbiekben ne keveredjen a másik var_id-val
+eco$eco_code <- eco$code #ugyanez a code-dal
+eco = eco %>% 
+  select(soc_id,eco_id, eco_code) # csak az új eco_id-t és eco_code-ot tartom meg
+
+# Oszlopok átnevezése
+societies = societies %>% 
+  rename(soc_id = id) # a data soc_id oszlopa ugyanaz, mint a societies id oszlopa
+
+variables = variables %>% 
+  rename(var_id = id) # a data var_id oszlopa ugyanaz, mint a variables id oszlopa
+
+# Összegyúrás egy nagy táblázatba, kombináció kettesével 
+# data és variables
+d_long = left_join(data,variables)
+
+# új adattábla + societies
+d_long = left_join(d_long,societies)
+
+# d_long + codes
+d_long = left_join(d_long,codes)
+
+# locations hozzáadása
+# a locations esetében újra kell definiálni a soc_id oszlopot, mert a dataset-ben van, 
+# hogy SCCS, a soc_id-nál pedig csak a szám, így ezeket mergelem
+locations$soc_id <- paste(locations$dataset, locations$soc_id, sep = "")
+locations = locations %>% 
+  select(soc_id,region) # itt már kivehetjük belőle a dataset oszlopot
+d_long = left_join(d_long,locations)
+
+# klíma adatok hozzáadása
+d_long = left_join(d_long,eco) 
+```
+
+  A táblázat áttekinthetősége és az elemzés megkönnyítése érdekében ezután kiválasztottam a releváns prediktorváltozót és célváltozókat, így már csak ezek szerepeltek a közös adattáblában. Ezt követően eltávolítottam az "NA"-t tartalmazó sorokat, valamint a "code" oszlopot, ahol az egyes változókhoz tartozó értékek szerepelnek, "karakter" típusúvá alakítottam, hiszen az összes ott szereplő változó valójában ordinális, így a későbbiekben az ábrázolásnál nem fog problémát okozni. 
+
+```{r filtering, echo=FALSE}
+d_long = d_long %>% 
+  filter(
+    var_id %in% c('SCCS767', 'SCCS705', 'SCCS1263', 'SCCS1723'),
+    eco_id == 'PrecipitationPredictability'
+  )
+
+# NA szűrése
+d_filtered <- d_long[!is.na(d_long$code), ]
+
+# Típusok átalakítása
+d_filtered$code <- as.character(d_filtered$code)
+```
+
+## Az adatok elemzése
+
+|     Az adatok elemzésének, jelen esetben az ábrák (főleg a későbbi,komplexebb) készítésének érdekében négy különálló, kisebb táblázatot is létrehoztam, melyben egy-egy társadalmi instabilitás változó szerepelt, azon kívül pedig az összes oszlopa megegyezett a nagy adattábla oszlopaival. Ehhez egy függvényt is definiáltam, melynek csak annak az oszlopnak a nevét kellett megadni, mely alapján el szeretnénk végezni a filterezést, valamint annak az értéknek a nevét, amit ki szeretnénk választani. 
+
+```{r function, echo=FALSE}
+filtering <- function(column, value) {
+  d_filtered %>%
+    filter({{ column }} == value)
+}
+
+starvation <- filtering(title, "Occurrence of Seasonal Starvation")
+settlement <- filtering(title, "Settlement Type")
+poor <- filtering(title, "Number of Poor")
+conflict <- filtering(title, "(No) Conflict (Social or Political) in the Local Community")
+```
+
+  Jelen beszámolóban az adatok elemzése céljából első sorban ábrákra kellett támaszkodnunk, így azokon keresztül fogom bemutatni az általam feltárt összefüggéseket. Az ábrákat APA7 formátumnak megfelelő elrendezéssel, formázásokkal és betűtípussal készítettem.
+
+  Elsőként (1.ábra) a társadalmi instabilitás legtöbbet vizsgált indikátorának, a kulturális közösségen belüli konfliktusoknak az összefüggését vizsgáltam a csapadék bejósolhatóságával. Az ábrán megfigyelhető, hogy olyan közösség, ahol az erőszakos konfliktus mindennapi, csupán négy szerepelt az adatbázisban. A csapadék kiszámíthatósága nagyon eltérő (bár a medián a legalacsonyabb a négy csoport közül), így a belőlük levonható követleztetések erőteljesen korlátozottak. Azon kultúrák, ahol nem mindennapi, de magas a konfliktus aránya már nagyobb számban előfordultak az adatbázisban. Az ábráról leolvasható, hogy átlagosan valóban jobban jellemzi őket a csapadék bejósolhatatlansága, mint azokat a kultúrákat, ahol mérsékeltek a konfliktusok mind számukat, mind végkimenetüleket tekintve. Meglepő módon, azokban a közösségekben, ahol ritkán vannak és csak enyhe konfliktusok, ott kevésbé bejósolható jellemzően a csapadék, de feltehetően a mérsékelt csoporttól való eltérés nem szignifikáns. Az ábra alapján összességében elmondható, hogy a csapadék bejósolhatatlansága valóban több és erőszakosabb konfliktusokkal jár együtt (bár egyértelműen nem ez az egy tényező határozza meg). 
+
+```{r conflict, echo = FALSE, fig.height = 5, fig.width = 8, fig.align = "left"}
+library(ggplot2)
+library(see)
+library(ggthemes)
+conflict |> 
+  ggplot(aes(x = code, y = eco_code, fill = code)) +
+  geom_violinhalf(width = 0.3, position = position_nudge(x = -0.35)) +
+  geom_boxplot(width = 0.3) +
+  geom_jitter(width = 0.2, size = 3, alpha = 0.6) +
+  theme_minimal() +
+  labs(
+    y = "Csapadék bejósolhatósága",
+    x = "Társadalmi vagy politikai konfliktus a közösségen belül",
+    fill = "Konfliktus mennyisége", 
+    title = "1.ábra",
+    subtitle = "A csapadék bejósolhatósága különbözö mértékü közösségen belüli konfliktussal jellemezhetö kultúrák esetében"
+  ) +
+  theme(
+    legend.title = element_text(size = 12, family = "serif"),
+    legend.text = element_text(size = 10, family = "serif"),
+    axis.text= element_text(size = 10, family = "serif"),
+    legend.spacing = unit(3, "lines"),
+    legend.key.size = unit(2.5, "lines"),
+    plot.title = element_text(size = 12, hjust = 0, margin = margin(b = 20, unit = "pt"), face = "bold", family =     "serif"),
+    plot.subtitle = element_text(size = 12, hjust = 0, margin = margin(t = 10, unit = "pt"), face = "italic",         family = "serif")
+  ) +
+  scale_fill_brewer(palette = "Greys", direction = -1, labels = str_wrap(c("Mindennapos eröszak, konfliktusok", "Magas: jelen van, de nem átható a mindennapi életben", "Mérsékelt: a nézeteltérések nem vezetnek nagyfokú eröszakhoz", "Enyhe vagy ritka"), width = 30)) +
+  scale_x_discrete(labels = NULL)
+```
+
+  A következő ábrán (2.ábra) a csapadék bejósolhatóságának és a szezonális éhezésnek az összefüggését láthatjuk. Megfigyelhető, hogy azokban a kultúrákban, ahol a legalacsonyabb szintű a szezonális éhezés, átlagosan ott a legbejósolhatóbb a csapadék, illetve ott mutatják a legkisebb variabilitást az erre vonatkozó adatok. Az összefüggés meglétének azonban erősen ellentmond, hogy azokon a helyeken, ahol magas, illetve nagyon magas az időszakos éhezésnek a szintje, kiszámíthatóbb a csapadék, mint ahol csak mérsékelten fordul elő az éhezés. Továbbá, szintén látható, hogy a csapadék szempontjából legkevésbé kiszámítható helyek szinte mindegyike "csak" mérsékelt szintű szezonális éhezéssel jellemezhető. Az összefüggés tehát nem egyértelmű ebben az esetben, ennek magyarázata lehet esetleg, hogy nem első sorban mezőgazdaságra támaszkodnak azok a kultúrák, ahol kiszámíthatatlanabb a csapadék. 
+
+```{r starvation, echo = FALSE, fig.height = 5, fig.width = 8, fig.align = "left"}
+starvation |> 
+ggplot(aes(x = eco_code, y = code, color = code)) +
+  geom_boxplot() +
+  geom_jitter(size = 3, alpha = 0.5) +
+  theme_minimal() +
+  scale_color_manual(values = c("#DE6B48", "#E5B181", "#F4B9B2", "#CFE2B0", "#7DBBC3"),
+                     labels = c("Nagyon alacsony", "Alacsony", "Mérsékelt", "Magas", "Nagyon magas")) +
+  labs(
+    y = "Szezonális éhezés",
+    x = "Csapadék bejósolhatósága",
+    color = "Szezonális éhezés szintjei",
+    title = "2. ábra",
+    subtitle = "A csapadék bejósolhatósága az idöszakos éhezés különbözö mértékével leírható kultúrák esetében"
+  ) +
+  theme(
+    legend.title = element_text(size = 12,  family = "serif"),
+    legend.text = element_text(size = 10,  family = "serif"),
+    axis.text= element_text(size = 10,  family = "serif"),
+    plot.title = element_text(size = 12, hjust = 0, margin = margin(b = 20, unit = "pt"), face = "bold", family = "serif"),
+    plot.subtitle = element_text(size = 12, hjust = 0, margin = margin(t = 10, unit = "pt"), face = "italic", family = "serif")
+  ) +
+  scale_y_discrete(labels = NULL)
+```
+
+  A lenti ábrán (3.ábra) a csapadék bejósolhatóságának a társadalmon belüli szegénység arányával való összefüggését ábrázoltam. Ezen ábra értelmezését jelentősen korlátozza, hogy a vizsgált kultúrák jelentős részéről elmondható, hogy jellemző a szegénység jelenléte, viszont nincs pontos információnk annak mértékéről. A csapadék kiszámíthatóságának eloszlása alapján azt állapíthatjuk meg, hogy ahol nincs, szegénység, jellemzőbben bejósolható a csapadék. Azonban jelentős különbség meglétére nem következtethetünk a magas és alacsony arányú szegénység jelenlétével jellemezhető kultúrákhoz képest (bár ezek esetében jóval kevesebb adat áll rendelkezésünkre). 
+
+```{r poor, echo = FALSE, fig.height = 5, fig.width = 8, fig.align = "left"}
+poor |> 
+  ggplot(aes(x = eco_code, y = code, fill = code)) +
+  geom_violin(trim = FALSE, scale = "width", width = 0.8, alpha = 0.8) +
+  geom_jitter(position = position_jitter(width = 0.2), size = 3, alpha = 0.5) +
+  theme_minimal() +
+  labs(
+    y = "Szegénység mértéke",
+    x = "Csapadék bejósolhatósága",
+    fill = "Szegénység mértéke",
+    title = "3. ábra",
+    subtitle = "A csapadék bejósolhatóságának összefüggése a szegénység arányával a társadalmon belül"
+  ) +
+  theme(
+    legend.title = element_text(size = 12, family = "serif"),
+    legend.text = element_text(size = 10, family = "serif"),
+    axis.text= element_text(size = 10, family = "serif"),
+    legend.spacing = unit(2, "lines"),
+    legend.key.size = unit(2, "lines"),
+    plot.title = element_text(size = 12, hjust = 0, margin = margin(b = 20, unit = "pt"), face = "bold", family = "serif"),
+    plot.subtitle = element_text(size = 12, hjust = 0, margin = margin(t = 10, unit = "pt"), face = "italic", family = "serif")
+  ) +
+  scale_fill_brewer(palette = "RdYlBu",  labels = str_wrap(c("Szegénység hiánya", "Szegénység jelenléte: nincs információ a mértékéröl", "Alacsony arányú szegénység", "Magas arányú szegénység"), width = 30)) +
+  scale_y_discrete(labels = NULL)
+```
+
+  A társadalmi instabilitás mutatóit egyesével vizsgáló ábrák közül az utolsón (4.ábra) a letelepedési szokások függvényében figyelhetjük meg a csapadék kiszámíthatóságát. Az ábra alapján megállapíthatjuk, hogy azokban a kultúrák esetében, ahol komplex teleplülések vannak, minden esetben kimondottan bejósolható a csapadékozás. Az összefüggést tovább erősíti, hogy az állandó falvak esetében is ugyanez mondható el, kicsit nagyobb variabilitással ugyan, de így középértékük így is feltehetően szignifikánsan felülmúlja a többi csoportét ebben a tekintetben. A skála ellentétes "végén" pedig a nomád és szeminomád letelepedési szokásokkal jellemezheető kultúrákat találjuk, ebben a sorrendben a csapadék bejósolhatósága szerint. A szétszórt családi letepülések szintjére érve pedig mintegy "ugrásszerű" növekedés tapasztalható, főleg az alsó értékeket tekintve. Az ábra alapján ez az összefüggés viszonylag erősnek mondható, azokban a kultúrákban, ahol bejósolhatóbb a csapadékozás, jellemzőben letelepedett életmódot folytatnak a lakosok. 
+
+
+```{r settlement, echo = FALSE, fig.height = 5, fig.width = 8, fig.align = "left"}
+settlement |> 
+  ggplot(aes(x = code, y = eco_code, fill = code)) +
+  geom_violinhalf(width = 2, position = position_nudge(x = 0.08)) +
+  geom_boxplot(width = 0.5, position = position_nudge(x = -0.22)) + 
+  theme_minimal() +
+  labs(
+    y = "Csapadék bejósolhatósága",
+    x = "Letelepedés mértéke",
+    fill = "Letelepedés szintjei",
+    title = "4. ábra",
+    subtitle = "A csapadék kiszámíthatósága különbözö letelepedési szokásokkal jellemezhetö kultúrák esetében"
+  ) +
+  theme(
+    legend.title = element_text(size = 12, family = "serif"),
+    legend.text = element_text(size = 10, family = "serif"),
+    axis.text= element_text(size = 10, family = "serif"),
+    legend.spacing = unit(2, "lines"),
+    legend.key.size = unit(2, "lines"),
+    plot.title = element_text(size = 12, hjust = 0, margin = margin(b = 20, unit = "pt"), face = "bold", family = "serif"),
+    plot.subtitle = element_text(size = 12, hjust = 0, margin = margin(t = 10, unit = "pt"), face = "italic", family = "serif")
+    ) +
+  scale_fill_brewer(palette = "Blues", labels = str_wrap(c("Teljesen vándorló vagy nomád", "Szeminomád - legalább fél évben vándorló", 
+                                                   "Szétszórt családi letelepülések", "Elkülönült falvak, ahol több család többé-kevésbé egységet alkotnak", "Kompakt és állandó falu vagy város", 
+                                                   "Komplex települések, melyet a közösség részének tekintett tanyák/falvak vesznek körül"), width = 30)) +
+  scale_x_discrete(labels = NULL)
+```
+
+  A társadalmi instabilitást mutató változókat nem csak egyesével, hanem összességében is meg szerettem volna vizsgálni és összehasonlítani a csapadék bejósolhatóságával, földrajzi eloszlásukat is figyelembe véve. Ehhez először a skálákat egységesíteni kellett. Ezt úgy oldottam meg, hogy azokban az esetekben, ahol a skála több, mint négyszintű volt, ott a kevés elemszámmal rendelkező szinteket egységesítettem, vagy azokat, amik értelmezésük szereint "összevonhatóak". Egyes esetekben pedig a szintezés megfordítására is szükség volt, hogy minden skála eseetében a magasabb értékű változók jelentsék a társadalmi stabilitás magasabb szintjét. 
+
+```{r uniform, echo=FALSE}
+poor$code[poor$code == 10] <- 4
+poor$code[poor$code == 20] <- 3
+poor$code[poor$code == 21] <- 2
+poor$code[poor$code == 22] <- 1
+
+starvation$code[starvation$code == 1] <- 4
+starvation$code[starvation$code == 2] <- 3
+starvation$code[starvation$code == 3] <- 2 
+starvation$code[starvation$code == 4] <- 2 # magas változó nagyon kevés volt, ezért vontam egybe
+starvation$code[starvation$code == 5] <- 1
+
+settlement$code[settlement$code == 6] <- 4
+settlement$code[settlement$code == 5] <- 4
+settlement$code[settlement$code == 4] <- 3 #a felső és középső értékeket egybevontam
+```
+
+# Eredmények
+
+|     A következő térképeken mefigyelhetjük, mind a csapadék bejósolhatóságának (5.ábra), mind a vizsgált, társadalmi stabilitás mértékét mutató változóknak (6.ábra) földrajzi eloszlását. Utóbbi térképen minden alakú jel más vizsgálat változót jelent (háromszög - konfliktus, rombusz - szezonális éhezés, kereszt - letelepedés, X - szegényésg mértéke), viszont nagyobb jelentősége a színeknek van. A lila szín jelöli azokat a jellemzőket, melyek a társadalmi instabilitás nagyon alacsony szintjének valamilyen aspektusát jelölik, míg a kékek az alacsony, a zöldek a magas, a lazacszín pedig a nagyon magas szintet jelölik. A két térképet egyszerre vizsgálva megfigyelhetjük, hogy ahol több tényező mentén is a társadalmi stabilitás magas szintjére következtethetünk, ott bejósolható a csapadék, illetve ahol több aspektusban is megnyilvánul a társadalmi instabilitás, ott az esetek többségében alacsonyabb a csapadék kiszámíthatósága. Ezalól természetesen kivételeket és nem azonos irányba mutató jeleket is láthatunk, például Afrika és Ázsia bizonyos régióiban kimondottan alacsony a csapadékozás bejósolhatósága, mégis viszonylag konzisztensen magas társadalmi stabilitás jegyeit fedezhetjük fel. 
+  
+
+```{r firstmap, echo = FALSE, fig.height = 6, fig.width = 8, fig.align = "left"}
+library(maps)
+world_map <- map_data("world")
+ggplot() +
+  geom_polygon(data = world_map, aes(x = long, y = lat, group = group), fill = "#EAEAEA") +
+  geom_point(data = d_long, aes(x = Long, y = Lat, color = eco_code), size = 3.5) +
+  theme_minimal() +
+  labs(
+    y = "Szélesség",
+    x = "Hosszúság",
+    title = "5. ábra",
+    subtitle = "A csapadék bejósolhatósága világszerte",
+  ) +
+  theme(
+    legend.position = "bottom",
+    legend.title = element_text(size = 12, family = "serif"),
+    legend.text = element_text(size = 10, family = "serif"),
+    axis.text= element_text(size = 10, family = "serif"),
+    plot.title = element_text(size = 12, hjust = 0, margin = margin(b = 20, unit = "pt"), face = "bold", family =  "serif"),
+    plot.subtitle = element_text(size = 12, hjust = 0, margin = margin(t = 10, unit = "pt"), face = "italic", family = "serif")
+  ) +
+  scale_color_gradient(low = "red", high = "blue", name = "Csapadék bejósolhatósága") 
+```
+
+
+```{r secondmap, echo = FALSE, fig.height = 6, fig.width = 8, fig.align = "left"}
+ggplot() +
+  geom_polygon(data = world_map, aes(x = long, y = lat, group = group), fill = "#EAEAEA") +
+  geom_point(data = conflict, aes(x = Long, y = Lat, color = code), size = 2, shape = 2) +
+  geom_point(data = poor, aes(x = Long, y = Lat, color = code), size = 2, shape = 4, position = position_nudge(x =   3, y = 0)) +
+  geom_point(data = starvation, aes(x = Long, y = Lat, color = code), size = 2, shape = 5, position =               position_nudge(x = 0, y = 3)) +
+  geom_point(data = settlement, aes(x = Long, y = Lat, color = code), size = 2, shape = 3, position =               position_nudge(x = 3, y = 3)) +
+  theme_minimal() +
+  labs(
+    y = "Szélesség",
+    x = "Hosszúság",
+    color = "Társadalmi bizonytalanság",
+    title = "6. ábra",
+    subtitle = "A társadalmi stabilitás mutatóinak földrajzi eloszlása",
+  ) +
+  theme(
+    legend.position = "bottom",
+    legend.title = element_text(size = 12, family = "serif"),
+    legend.text = element_text(size = 10, family = "serif"),
+    axis.text= element_text(size = 10, family = "serif"),
+    plot.title = element_text(size = 12, hjust = 0, margin = margin(b = 20, unit = "pt"), face = "bold", family =     "serif"),
+    plot.subtitle = element_text(size = 12, hjust = 0, margin = margin(t = 10, unit = "pt"), face = "italic",         family = "serif")
+  ) +
+  scale_fill_brewer(palette = "Dark2") +
+  scale_color_discrete(labels = c("Nagyon magas", "Magas", "Alacsony", "Nagyon alacsony"))
+```
+
+
+  Összességében, az eredmények alapján elmondhatjuk, hogy bár egyértelműen más tényezők is befolyásolják a társadalmi instabilitást (akár más klimatológiai tényezők is), a csapadék bejósolhatósága több mutatóval is szorosan összefügg. Ez a felismerés fontos lehet a társadalmi és gazdasági politikák kialakításában és végrehajtásában, különösen olyan területeken, ahol a csapadék kiszámíthatóságának javítása segíthet az instabilitás csökkentésében és a fenntartható fejlődés előmozdításában. Emellett, felhívja a figyelmet a környezetvédelem és vízgazdálkodás aktuális problémáira is. 
+
+# Irodalom
+|     Dirks, R. (1993). Starvation and famine: cross-cultural codes and some hypothesis tests.*Cross-Cultural Research*,27(1-2), 28-69.
+
+Hsiang, S. M., & Burke, M. (2014). Climate, conflict, and social stability: What does the evidence say? *Climatic Change*, 123(1), 39–55. https://doi.org/10.1007/s10584-013-0868-3
+
+Lang, H. (1998). CONAN: An electronic code-text data-base for cross-cultural studies.*World Cultures*,9(2), 13-56.
+
+Lima-Ribeiro, M. S., Varela, S., González-Hernández, J., De Oliveira, G., Diniz-Filho, J. A. F., & Terribile, L. C. (2015). EcoClimate: a database of climate data from multiple models for past, present, and future for macroecologists and biogeographers. *Biodiversity Informatics*, 10, 1–21. https://doi.org/10.17161/bi.v10i0.4955
+
+Murdock, G.P., & White, D.R. (1969). Standard Cross-Cultural Sample. *Ethnology*, 8, 329.
+
+Raleigh, C., Choi, H. J., & Kniveton, D. (2015). The devil is in the details: An investigation of the relationships between conflict, food price and climate across Africa. *Global Environmental Change*, 32, 187–199. https://doi.org/10.1016/j.gloenvcha.2015.03.005
+
+Ross, M. H. (1983). Political decision making and conflict: Additional cross-cultural codes and scales.*Ethnology*,22(2), 169-192.
+
+Sellers, S., Ebi, K. L., & Hess, J. (2019). Climate change, human health, and social stability: Addressing interlinkages. *Environmental Health Perspectives*, 127(4), 1–10. https://doi.org/10.1289/EHP4534
+
+Whyte, M. K. (2015). The Status of Women in Preindustrial Societies. Princeton University Press.
